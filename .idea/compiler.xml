@@ -7,21 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for client" enabled="true">
+      <profile name="Annotation profile for server" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="client" />
         <module name="server" />
+        <module name="client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="client" target="17" />
       <module name="FoodSaver" target="18" />
-      <module name="server" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
