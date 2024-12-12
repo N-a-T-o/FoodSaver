@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add User entity, migration, Role enum">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/model/VerificationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/db/migration/V2__create_verification_tokens_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add VerificationToken entity, migration">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/db/migration/V1__create_users_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/db/migration/V1__create_users_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734032933660</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add VerificationToken entity, migration">
+      <option name="closed" value="true" />
+      <created>1734033985951</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734033985951</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +180,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="Add User entity, migration, Role enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add User entity, migration, Role enum" />
+    <MESSAGE value="Add VerificationToken entity, migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add VerificationToken entity, migration" />
   </component>
 </project>
