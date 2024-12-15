@@ -1,39 +1,22 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# Intellij
 *.iml
-*.ipr
+!.idea/
 .idea/*
-!.idea/misc.xml
-!.idea/modules.xml
-!.idea/compiler.xml
-!.idea/encodings.xml
+!.idea/runConfigurations/
+*.ipr
+*.iws
+/out/
+/files/
+.idea_modules/
+atlassian-ide-plugin.xml
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Maven
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
