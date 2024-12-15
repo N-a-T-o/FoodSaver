@@ -16,7 +16,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="server" />
-        <module name="client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
