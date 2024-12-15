@@ -1,6 +1,5 @@
 # Intellij
 *.iml
-!.idea/
 .idea/*
 !.idea/runConfigurations/
 *.ipr
