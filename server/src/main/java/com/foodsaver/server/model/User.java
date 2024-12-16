@@ -71,7 +71,7 @@ public class User implements UserDetails{
 
     private boolean enabled = true;
 
-    @OneToMany(mappedBy = "alternativeUser", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<VerificationToken> verificationTokens;
 
     @Enumerated(EnumType.STRING)

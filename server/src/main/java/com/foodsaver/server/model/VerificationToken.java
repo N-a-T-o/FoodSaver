@@ -38,6 +38,6 @@ public class VerificationToken implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User alternativeUser;
+    private User user;
 
 }

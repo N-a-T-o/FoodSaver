@@ -7,7 +7,6 @@ import com.foodsaver.server.exceptions.UsernamePasswordException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 @AllArgsConstructor
-@NoArgsConstructor
 public class ApiExceptionHandler {
 
     @ExceptionHandler(value = {ApiRequestException.class})
