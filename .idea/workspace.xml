@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add custom exceptions, exception handler, add jwt dependencies">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add ApplicationConfig">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/authorization/JWTAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/authorization/JWTService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/authorization/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/authorization/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
     </list>
@@ -18,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -148,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734372847223</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add ApplicationConfig">
+      <option name="closed" value="true" />
+      <created>1734375465775</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734375465775</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +191,7 @@
     <MESSAGE value="Add User entity, migration, Role enum" />
     <MESSAGE value="Add VerificationToken entity, migration" />
     <MESSAGE value="Add custom exceptions, exception handler, add jwt dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add custom exceptions, exception handler, add jwt dependencies" />
+    <MESSAGE value="Add ApplicationConfig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ApplicationConfig" />
   </component>
 </project>
