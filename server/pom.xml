@@ -150,7 +150,7 @@
 						<exclude>**/dtos/**</exclude>
 						<exclude>**/repositories/**</exclude>
 						<exclude>**/enums/**</exclude>
-						<exclude>**/exeptions/**</exclude>
+						<exclude>**/exceptions/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
