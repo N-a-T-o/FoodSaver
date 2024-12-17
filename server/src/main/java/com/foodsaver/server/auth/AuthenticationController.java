@@ -1,6 +1,7 @@
 package com.foodsaver.server.auth;
 
-import jakarta.validation.Valid;
+import com.foodsaver.server.dtos.request.AuthenticationRequest;
+import com.foodsaver.server.dtos.response.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,5 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 public class AuthenticationController {
 
-    private final AuthenticationService authenticationService;
+    private final AuthenticationService service;
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
+        return ResponseEntity.ok(service.authenticate(request));
+    }
 }
