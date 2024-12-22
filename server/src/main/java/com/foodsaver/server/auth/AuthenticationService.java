@@ -2,15 +2,24 @@ package com.foodsaver.server.auth;
 
 import com.foodsaver.server.authorization.JWTService;
 import com.foodsaver.server.dtos.request.AuthenticationRequest;
+import com.foodsaver.server.dtos.request.RegisterRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
-import com.foodsaver.server.exceptions.UsernamePasswordException;
+import com.foodsaver.server.enums.Role;
+import com.foodsaver.server.exceptions.ApiRequestException;
+import com.foodsaver.server.exceptions.User.UserCreateException;
+import com.foodsaver.server.exceptions.User.UsernamePasswordException;
+import com.foodsaver.server.model.User;
 import com.foodsaver.server.repositories.UserRepository;
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -29,17 +38,41 @@ public class AuthenticationService {
                             request.getPassword()
                     )
             );
-            var user = userRepository.findByUsername(request.getUsername());
-            if (!user.isEnabled()) throw new UsernamePasswordException("User not verified!!!");
-            var jwtToken = jwtService.generateToken(user);
-
-            return AuthenticationResponse.builder()
-                    .token(jwtToken)
-                    .build();
-        } catch (DisabledException e) {
-            throw new UsernamePasswordException("Account not verified!");
-        } catch (Exception e) {
-            throw new UsernamePasswordException("Wrong username or password!");
+        } catch (AuthenticationException ex) {
+            throw new UsernamePasswordException();
         }
+
+        User user = userRepository.findByUsername(request.getUsername());
+        if (!user.isEnabled()) throw new UsernamePasswordException();
+        var jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    }
+
+    public String register(RegisterRequest request) {
+        if (userRepository.findByEmail(request.getEmail()).isPresent())
+            throw new ApiRequestException("User with such email already exists!");
+        if (userRepository.findByUsername(request.getUsername()) != null)
+            throw new ApiRequestException("User with such username already exists!");
+        if (!request.getPassword().equals(request.getRepeatedPassword())) throw new ApiRequestException("Passwords do not match!");
+        if (request.getPassword().length() < 8) throw new ApiRequestException("Password must be at least 8 characters long!");
+        try {
+            User user = User.builder()
+                    .email(request.getEmail())
+                    .username(request.getUsername())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .createdAt(LocalDateTime.now())
+                    .enabled(false)
+                    .role(Role.USER)
+                    .build();
+            userRepository.save(user);
+        } catch (DataIntegrityViolationException exception) {
+            throw new UserCreateException(true);
+        } catch (ConstraintViolationException exception) {
+            throw new UserCreateException(exception.getConstraintViolations());
+        }
+        return "User registered successfully!";
     }
 }
