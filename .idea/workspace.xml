@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/dtos/response/ExceptionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/ApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/EmailNotVerifiedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/InvalidTokenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserCreateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UsernamePasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/utils/ApiExceptionParser.java" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add tests">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/ApplicationConfigTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/JWTAuthenticationFilterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/JWTServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/AccessDeniedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/AccessDeniedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/ApiRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/ApiRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/TokenExpiredException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/UsernamePasswordException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/handler/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/handler/ApiExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/repositories/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +55,12 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ApplicationConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JWTAuthenticationFilterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JWTServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;Maven.server [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -79,7 +73,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AuthenticationControllerTest">
     <configuration name="ServerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -95,6 +89,91 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthenticationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationServiceTest" />
+      <option name="METHOD_NAME" value="authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JWTAuthenticationFilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.authorization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.authorization" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.authorization.JWTAuthenticationFilterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JWTServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.authorization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.authorization" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.authorization.JWTServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AuthenticationControllerTest" />
+        <item itemvalue="JUnit.AuthenticationServiceTest" />
+        <item itemvalue="JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" />
+        <item itemvalue="JUnit.JWTServiceTest" />
+        <item itemvalue="JUnit.JWTAuthenticationFilterTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -196,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734421594426</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add authenticate request. Add custom exceptions stuff">
+      <option name="closed" value="true" />
+      <created>1734892802542</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734892802542</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +319,8 @@
     <MESSAGE value="Add jwt configuration files. Add AppConfig" />
     <MESSAGE value="Add UserDTO, AuthenticationService, AuthenticationController" />
     <MESSAGE value="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs" />
+    <MESSAGE value="Add authenticate request. Add custom exceptions stuff" />
+    <MESSAGE value="Add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tests" />
   </component>
 </project>
