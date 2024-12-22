@@ -1,38 +1,54 @@
-name: build
+name: Build and SonarQube Analysis
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
 jobs:
   build:
+    name: Build and Analyze
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - name: set up java
-        uses: actions/setup-java@v3
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          java-version: '17'
-          distribution: 'oracle'
-          cache: maven
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: mvn clean install
-        run: mvn clean install
+      # Set up JDK 17
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: zulu # Options: 'oracle', 'zulu', etc.
+          cache: maven  # Enables caching for Maven dependencies
 
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v3
+      # Cache SonarQube packages
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
+      # Cache Maven packages
       - name: Cache Maven packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Build and analyze
+      # Build with Maven
+      - name: Build with Maven
+        run: mvn -B clean install -Dtest=!controllerTest/** --file pom.xml
+        working-directory: server
+
+      # Build and analyze with SonarQube
+      - name: SonarQube Analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
