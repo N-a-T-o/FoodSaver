@@ -1,6 +1,7 @@
 package com.foodsaver.server.auth;
 
 import com.foodsaver.server.authorization.JWTService;
+import com.foodsaver.server.dtos.VerificationTokenDTO;
 import com.foodsaver.server.dtos.request.AuthenticationRequest;
 import com.foodsaver.server.dtos.request.RegisterRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
@@ -9,7 +10,11 @@ import com.foodsaver.server.exceptions.ApiRequestException;
 import com.foodsaver.server.exceptions.User.UserCreateException;
 import com.foodsaver.server.exceptions.User.UsernamePasswordException;
 import com.foodsaver.server.model.User;
+import com.foodsaver.server.model.VerificationToken;
 import com.foodsaver.server.repositories.UserRepository;
+import com.foodsaver.server.repositories.VerificationTokenRepository;
+import com.foodsaver.server.services.EmailSenderService;
+import com.foodsaver.server.services.VerificationTokenService;
 import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -28,6 +33,9 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final VerificationTokenService verificationTokenService;
+    private final VerificationTokenRepository verificationTokenRepository;
+    private final EmailSenderService emailSenderService;
     private static final String INVALID_TOKEN = "Invalid token!";
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
@@ -68,6 +76,10 @@ public class AuthenticationService {
                     .role(Role.USER)
                     .build();
             userRepository.save(user);
+            VerificationTokenDTO verificationTokenDTO = verificationTokenService.createVerificationToken(user);
+            verificationTokenRepository.save(new VerificationToken(verificationTokenDTO.getId(), verificationTokenDTO.getToken(),
+                    verificationTokenDTO.getExpiryDate(), user));
+            emailSenderService.sendVerificationToken(verificationTokenDTO, user);
         } catch (DataIntegrityViolationException exception) {
             throw new UserCreateException(true);
         } catch (ConstraintViolationException exception) {

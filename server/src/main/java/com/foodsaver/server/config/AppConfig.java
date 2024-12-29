@@ -6,11 +6,13 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.foodsaver.server.authorization.JwtAuthenticationEntryPoint;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 import java.time.format.DateTimeFormatter;
 
+@Configuration
 public class AppConfig {
     @Bean
     public ModelMapper modelMapper(){
