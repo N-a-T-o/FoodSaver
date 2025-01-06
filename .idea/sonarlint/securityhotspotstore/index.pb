@@ -15,8 +15,6 @@ A
 server/.gitignore,6\8\684633b668b24c06fe5d5ba72b7ed42a437aa655
 \
 ,server/.mvn/wrapper/maven-wrapper.properties,a\1\a1847328db0c4749c996db2576216f11f46a4261
-u
-Eclient/src/test/java/com/foodsaver/client/ClientApplicationTests.java,d\e\de3b3c8092ef1885e7e5082b62c600d7d9e36ea7
 E
 client/.gitattributes,8\3\838533876198adfc0da609eb1e3e841782d8f0c3
 ?
@@ -147,8 +145,6 @@ Q.idea/sonarlint/securityhotspotstore/c/d/cdcb47e0ae226424147805154b465c69d161d3
 Q.idea/sonarlint/securityhotspotstore/a/1/a1847328db0c4749c996db2576216f11f46a4261,6\2\6220a68ff74c315ea781ba7ea9c61636f2733e3e
 
 Q.idea/sonarlint/securityhotspotstore/e/3/e32ec5c998c4774d8d1bedd59740d14d940c90ec,7\8\7871a558168ab71e3f4f0ec00a5bfbf996d07d9d
-
-Q.idea/sonarlint/securityhotspotstore/d/e/de3b3c8092ef1885e7e5082b62c600d7d9e36ea7,d\d\ddb71855334ace2912f633730ce0e045ca206208
 w
 G.idea/sonarlint/issuestore/e/3/e32ec5c998c4774d8d1bedd59740d14d940c90ec,6\b\6bec73e2e4193eda55ac5d6ea2cd38cfd86bbf79
 w
@@ -343,3 +339,11 @@ j
 :.idea/libraries/Maven__org_mockito_mockito_core_5_14_2.xml,f\5\f51f4580fbb447b02cf6971e5a4f30569bfc07cf
 z
 J.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_11_3.xml,b\3\b391bb77dc5b8c7eefdfc4c13e79bda5b69c8656
+=
+FoodSaver.iml,c\d\cd4edaa818f5b5a2a3c9ece958bf13bd2dc85086
+u
+Eserver/src/test/java/com/foodsaver/server/ServerApplicationTests.java,1\5\158ec88fce0c0b20f294db587d39afb404d33c5d
+>
+server/pom.xml,0\8\08a8b343eb3d041b4e874e74bf19e4275b4be110
+>
+client/pom.xml,0\4\041f522da4f7523dfafc230a092f5af2a53c5e8e
