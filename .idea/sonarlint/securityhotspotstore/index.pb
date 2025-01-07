@@ -15,8 +15,6 @@ A
 server/.gitignore,6\8\684633b668b24c06fe5d5ba72b7ed42a437aa655
 \
 ,server/.mvn/wrapper/maven-wrapper.properties,a\1\a1847328db0c4749c996db2576216f11f46a4261
-u
-Eclient/src/test/java/com/foodsaver/client/ClientApplicationTests.java,d\e\de3b3c8092ef1885e7e5082b62c600d7d9e36ea7
 E
 client/.gitattributes,8\3\838533876198adfc0da609eb1e3e841782d8f0c3
 ?
