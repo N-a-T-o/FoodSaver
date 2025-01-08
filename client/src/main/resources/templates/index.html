@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="#{home.title}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" rel="stylesheet"/>
@@ -11,18 +12,70 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90vh;
+            background-color: #037247;
+            margin: 0;
+        }
+
+        .banner .text {
+            color: white;
+            max-width: 50%;
+            padding: 0 50px;
+        }
+
+        .banner .image {
+            height: 90vh;
+            flex-shrink: 0;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .banner h1 {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="dropdown ml-2" id="locales">
+
+
+<div class="banner">
+    <div class="text text-center">
+        <h1>СъХРАНИтел</h1>
+        <p>
+            Оптимизирайте вашите хранителни запаси с лекота, планирайте идеалните рецепти, съобразени с
+            вашите предпочитания и нужди, и направете ежедневието си по-организирано, здравословно и
+            приятно! Нашата платформа ви помага да спестите време, ресурси и усилия, като ви предоставя
+            иновативни решения за управление на продуктите у дома и вдъхновение за вкусни ястия.
+        </p>
+    </div>
+
+    <img src="/images/banner.jpg" alt="banner image" class="image">
+
+
+</div>
+
+
+<div class="dropdown ml-2" id="locales">
         <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.25rem 0.5rem; background-color: #f2f2f2; border: none !important;">
             <span class="flag-icon flag-icon-bg" th:if="#{lang} == '??lang_bg??'"></span>
             <span class="flag-icon flag-icon-gb" th:if="#{lang} == '??lang_en??'"></span>
-            <span class="flag-icon flag-icon-de" th:if="#{lang} == '??lang_de??'"></span>
         </button>
         <div class="dropdown-menu" aria-labelledby="languageDropdown">
             <a class="dropdown-item" href="?lang=bg"><span class="flag-icon flag-icon-bg"></span> <span th:text="#{lang.bg}"></span></a>
             <a class="dropdown-item" href="?lang=en"><span class="flag-icon flag-icon-gb"></span> <span th:text="#{lang.eng}"></span></a>
-            <a class="dropdown-item" href="?lang=de"><span class="flag-icon flag-icon-de"></span> <span th:text="#{lang.de}"></span></a>
         </div>
     </div>
 </body>
