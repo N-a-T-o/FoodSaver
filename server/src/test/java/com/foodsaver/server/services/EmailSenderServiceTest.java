@@ -1,5 +1,6 @@
 package com.foodsaver.server.services;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
-=
 import static org.mockito.Mockito.*;
 
 class EmailSenderServiceTest {
