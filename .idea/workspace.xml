@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add tests">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/ApplicationConfigTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/JWTAuthenticationFilterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/authorization/JWTServiceTest.java" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add get user info request, add tests">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/dtos/request/VerificationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/services/EmailSenderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/services/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/utils/ApiExceptionParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/InvalidTokenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/InvalidTokenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature-github-workflows" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,34 +59,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ApplicationConfigTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthenticationControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthenticationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JWTAuthenticationFilterTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JWTServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.server [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ServerApplication.executor": "Run",
+    "JUnit.ApiExceptionParserTest.executor": "Run",
+    "JUnit.AppConfigTest.executor": "Run",
+    "JUnit.ApplicationConfigTest.executor": "Run",
+    "JUnit.AuthenticationControllerTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor": "Run",
+    "JUnit.AuthenticationServiceTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.register_ShouldRegisterUserSuccessfully.executor": "Run",
+    "JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties.executor": "Run",
+    "JUnit.EmailSenderServiceTest.executor": "Run",
+    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs.executor": "Run",
+    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully.executor": "Run",
+    "JUnit.JWTAuthenticationFilterTest.executor": "Run",
+    "JUnit.JWTServiceTest.executor": "Run",
+    "JUnit.SecurityConfigurationTest.executor": "Run",
+    "JUnit.SwaggerConfigTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowExceptionWhenUserNotFound.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowUserNotFoundExceptionWhenUserNotFound.executor": "Run",
+    "JUnit.VerificationTokenServiceTest.executor": "Run",
+    "JUnit.java in server.executor": "Run",
+    "Maven.server [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.AuthenticationControllerTest">
+}]]></component>
+  <component name="RunManager" selected="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully">
     <configuration name="ServerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
         <env name="DATASOURCE_URL" value="jdbc:mysql://${MYSQL_HOST:localhost}:3306/foodsaver?autoreconnect=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf8" />
         <env name="DB_PASSWORD" value="" />
+        <env name="email" value="ntodor358@gmail.com" />
+        <env name="password" value="lexrrzajpyytpqps" />
         <env name="secret.key" value="yvKlZIBeMDUA3s6saNgBpWHX65tJ+0WVs6Nqv9qhycYMVb4vZ0LqDtp6uMiI5gFv" />
         <env name="SERVER_PORT" value="8082" />
       </envs>
@@ -89,89 +112,99 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiExceptionParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="PATTERN" value="com.foodsaver.server.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationControllerTest" />
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.utils.ApiExceptionParserTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmailSenderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationServiceTest" />
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.auth.*" />
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.auth" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.auth.AuthenticationServiceTest" />
-      <option name="METHOD_NAME" value="authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" />
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="configureMailSender_ShouldSetMailSenderProperties" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JWTAuthenticationFilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.authorization.*" />
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.authorization" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.authorization.JWTAuthenticationFilterTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JWTServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.authorization.*" />
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.authorization" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.authorization.JWTServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="sendVerificationToken_ShouldSendEmailSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="JUnit.ApiExceptionParserTest" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
+      <item itemvalue="JUnit.EmailSenderServiceTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AuthenticationControllerTest" />
-        <item itemvalue="JUnit.AuthenticationServiceTest" />
-        <item itemvalue="JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials" />
-        <item itemvalue="JUnit.JWTServiceTest" />
-        <item itemvalue="JUnit.JWTAuthenticationFilterTest" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
+        <item itemvalue="JUnit.EmailSenderServiceTest" />
+        <item itemvalue="JUnit.ApiExceptionParserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +316,31 @@
       <option name="project" value="LOCAL" />
       <updated>1734892802542</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add tests">
+      <option name="closed" value="true" />
+      <created>1735497155843</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735497155843</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add EmailSenderService. Send email with verification token when register">
+      <option name="closed" value="true" />
+      <created>1735500569739</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1735500569739</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add AuthenticationServiceTest, VerificationTokenServiceTest">
+      <option name="closed" value="true" />
+      <created>1736232116975</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736232116975</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -321,6 +378,9 @@
     <MESSAGE value="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs" />
     <MESSAGE value="Add authenticate request. Add custom exceptions stuff" />
     <MESSAGE value="Add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add tests" />
+    <MESSAGE value="Add EmailSenderService. Send email with verification token when register" />
+    <MESSAGE value="Add AuthenticationServiceTest, VerificationTokenServiceTest" />
+    <MESSAGE value="Add get user info request, add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add get user info request, add tests" />
   </component>
 </project>

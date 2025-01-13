@@ -5,8 +5,10 @@ import com.foodsaver.server.dtos.UserDTO;
 import com.foodsaver.server.dtos.VerificationTokenDTO;
 import com.foodsaver.server.dtos.request.AuthenticationRequest;
 import com.foodsaver.server.dtos.request.RegisterRequest;
+import com.foodsaver.server.dtos.request.VerificationRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
 import com.foodsaver.server.exceptions.ApiRequestException;
+import com.foodsaver.server.exceptions.InvalidTokenException;
 import com.foodsaver.server.exceptions.User.UserCreateException;
 import com.foodsaver.server.exceptions.User.UsernamePasswordException;
 import com.foodsaver.server.model.User;
@@ -15,6 +17,7 @@ import com.foodsaver.server.repositories.UserRepository;
 import com.foodsaver.server.repositories.VerificationTokenRepository;
 import com.foodsaver.server.services.EmailSenderService;
 import com.foodsaver.server.services.VerificationTokenService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -185,5 +188,46 @@ class AuthenticationServiceTest {
         assertThrows(UserCreateException.class, () -> authenticationService.register(request));
     }
 
+    @Test
+    void verifyVerificationToken_ShouldVerifyAccountSuccessfully() {
+        VerificationRequest request = new VerificationRequest("token", "john@example.com");
+        VerificationToken verificationToken = mock(VerificationToken.class);
+        User user = mock(User.class);
+
+        when(verificationTokenRepository.findByToken(request.getToken())).thenReturn(Optional.of(verificationToken));
+        when(verificationToken.getUser()).thenReturn(user);
+        when(user.isEnabled()).thenReturn(false);
+        when(user.getEmail()).thenReturn(request.getEmail());
+        when(verificationTokenService.isTokenExpired(verificationToken)).thenReturn(false);
+
+        String result = authenticationService.verifyVerificationToken(request);
+
+        Assertions.assertEquals("Your account is verified!", result);
+        verify(userRepository).save(user);
+        verify(verificationTokenRepository).delete(verificationToken);
+    }
+
+    @Test
+    void verifyVerificationToken_ShouldThrowApiRequestExceptionForInvalidToken() {
+        VerificationRequest request = new VerificationRequest("invalidToken", "john@example.com");
+
+        when(verificationTokenRepository.findByToken(request.getToken())).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(ApiRequestException.class, () -> authenticationService.verifyVerificationToken(request));
+    }
+
+    @Test
+    void verifyVerificationToken_ShouldThrowTokenExpiredExceptionWhenTokenIsExpired() {
+        VerificationRequest request = new VerificationRequest("token", "john@example.com");
+        VerificationToken verificationToken = mock(VerificationToken.class);
+        User user = mock(User.class);
+
+        when(verificationTokenRepository.findByToken(request.getToken())).thenReturn(Optional.of(verificationToken));
+        when(verificationToken.getUser()).thenReturn(user);
+        when(user.isEnabled()).thenReturn(false);
+        when(verificationTokenService.isTokenExpired(verificationToken)).thenReturn(true);
+
+        Assertions.assertThrows(InvalidTokenException.class, () -> authenticationService.verifyVerificationToken(request));
+    }
 }
 

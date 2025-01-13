@@ -9,6 +9,6 @@ public class UserNotFoundException extends ApiException {
     }
 
     public UserNotFoundException(String field) {
-        super("User not found by " + field, HttpStatus.NOT_FOUND);
+        super(field, HttpStatus.NOT_FOUND);
     }
 }

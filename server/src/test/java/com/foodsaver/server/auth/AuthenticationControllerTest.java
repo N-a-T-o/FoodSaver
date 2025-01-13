@@ -3,6 +3,7 @@ package com.foodsaver.server.auth;
 
 import com.foodsaver.server.dtos.request.AuthenticationRequest;
 import com.foodsaver.server.dtos.request.RegisterRequest;
+import com.foodsaver.server.dtos.request.VerificationRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
 import com.foodsaver.server.exceptions.EmailNotVerifiedException;
 import com.foodsaver.server.exceptions.User.UsernamePasswordException;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -113,5 +115,20 @@ class AuthenticationControllerTest {
 
         assertThrows(ConstraintViolationException.class, () -> authenticationController.register(request));
         verify(authenticationService, times(1)).register(request);
+    }
+
+    @Test
+    void testVerifyVerificationToken() {
+        VerificationRequest verificationRequest = new VerificationRequest();
+        verificationRequest.setToken("verification-token");
+        verificationRequest.setEmail("john.doe@example.com");
+
+        when(authenticationService.verifyVerificationToken(any(VerificationRequest.class))).thenReturn("Your account is verified!");
+
+        ResponseEntity<String> response = authenticationController.verifyVerificationToken(verificationRequest);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Your account is verified!", response.getBody());
+        verify(authenticationService, times(1)).verifyVerificationToken(verificationRequest);
     }
 }
