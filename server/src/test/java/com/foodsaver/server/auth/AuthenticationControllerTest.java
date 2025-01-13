@@ -1,11 +1,12 @@
 package com.foodsaver.server.auth;
 
-
+import com.foodsaver.server.dtos.UserDTO;
 import com.foodsaver.server.dtos.request.AuthenticationRequest;
 import com.foodsaver.server.dtos.request.RegisterRequest;
 import com.foodsaver.server.dtos.request.VerificationRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
 import com.foodsaver.server.exceptions.EmailNotVerifiedException;
+import com.foodsaver.server.exceptions.UnauthorizedException;
 import com.foodsaver.server.exceptions.User.UsernamePasswordException;
 import com.foodsaver.server.model.User;
 import com.foodsaver.server.repositories.UserRepository;
@@ -130,5 +131,39 @@ class AuthenticationControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Your account is verified!", response.getBody());
         verify(authenticationService, times(1)).verifyVerificationToken(verificationRequest);
+    }
+
+    @Test
+    void testGetUserInfo_Success() {
+        // Arrange
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUsername("testuser");
+        userDTO.setEmail("test@example.com");
+
+        when(authenticationService.getUserInfo()).thenReturn(userDTO);
+
+        // Act
+        ResponseEntity<UserDTO> response = authenticationController.getUserInfo();
+
+        // Assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("testuser", response.getBody().getUsername());
+        assertEquals("test@example.com", response.getBody().getEmail());
+        verify(authenticationService, times(1)).getUserInfo();
+    }
+
+    @Test
+    void testGetUserInfo_ShouldThrowException_WhenNoUserLogged() {
+        // Arrange
+        doThrow(new UnauthorizedException("No logged user!"))
+                .when(authenticationService).getUserInfo();
+
+        // Act & Assert
+        UnauthorizedException exception = assertThrows(
+                UnauthorizedException.class,
+                () -> authenticationController.getUserInfo()
+        );
+        assertEquals("No logged user!", exception.getMessage());
+        verify(authenticationService, times(1)).getUserInfo();
     }
 }

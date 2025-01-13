@@ -9,6 +9,7 @@ import com.foodsaver.server.dtos.request.VerificationRequest;
 import com.foodsaver.server.dtos.response.AuthenticationResponse;
 import com.foodsaver.server.exceptions.ApiRequestException;
 import com.foodsaver.server.exceptions.InvalidTokenException;
+import com.foodsaver.server.exceptions.UnauthorizedException;
 import com.foodsaver.server.exceptions.User.UserCreateException;
 import com.foodsaver.server.exceptions.User.UsernamePasswordException;
 import com.foodsaver.server.model.User;
@@ -16,7 +17,9 @@ import com.foodsaver.server.model.VerificationToken;
 import com.foodsaver.server.repositories.UserRepository;
 import com.foodsaver.server.repositories.VerificationTokenRepository;
 import com.foodsaver.server.services.EmailSenderService;
+import com.foodsaver.server.services.UserService;
 import com.foodsaver.server.services.VerificationTokenService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,6 +37,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
@@ -48,6 +52,9 @@ class AuthenticationServiceTest {
 
     @Mock
     private PasswordEncoder passwordEncoder;
+
+    @Mock
+    private HttpServletRequest httpServletRequest;
 
     @Mock
     private JWTService jwtService;
@@ -66,6 +73,9 @@ class AuthenticationServiceTest {
 
     @Mock
     private EmailSenderService emailSenderService;
+
+    @Mock
+    private UserService userService;
 
     @BeforeEach
     void setUp() {
@@ -228,6 +238,49 @@ class AuthenticationServiceTest {
         when(verificationTokenService.isTokenExpired(verificationToken)).thenReturn(true);
 
         Assertions.assertThrows(InvalidTokenException.class, () -> authenticationService.verifyVerificationToken(request));
+    }
+
+    @Test
+    void getUserInfo_ShouldThrowUnauthorizedException_WhenAuthHeaderIsNull() {
+        when(httpServletRequest.getHeader("Authorization")).thenReturn(null);
+
+        UnauthorizedException exception = assertThrows(
+                UnauthorizedException.class,
+                () -> authenticationService.getUserInfo()
+        );
+        assertEquals("No logged user!", exception.getMessage());
+    }
+
+    @Test
+    void getUserInfo_ShouldReturnUserDTO_WhenAuthHeaderIsPresent() {
+        String token = "Bearer someValidJWTtoken";
+        String rawToken = "someValidJWTtoken";
+        String expectedUsername = "johnDoe";
+
+        UserDTO expectedUserDTO = new UserDTO();
+        expectedUserDTO.setUsername(expectedUsername);
+        expectedUserDTO.setEmail("john@example.com");
+
+        when(httpServletRequest.getHeader("Authorization")).thenReturn(token);
+        when(jwtService.extractUsername(rawToken)).thenReturn(expectedUsername);
+        when(userService.findUserByUsername(expectedUsername)).thenReturn(expectedUserDTO);
+
+        UserDTO result = authenticationService.getUserInfo();
+
+        assertNotNull(result);
+        assertEquals(expectedUsername, result.getUsername());
+        assertEquals("john@example.com", result.getEmail());
+        verify(jwtService).extractUsername(rawToken);
+        verify(userService).findUserByUsername(expectedUsername);
+    }
+
+    @Test
+    void getUserInfo_ShouldThrowUnauthorizedException_WhenTokenIsTooShort() {
+        String invalidToken = "Bearer";
+
+        when(httpServletRequest.getHeader("Authorization")).thenReturn(invalidToken);
+
+        assertThrows(StringIndexOutOfBoundsException.class, () -> authenticationService.getUserInfo());
     }
 }
 
