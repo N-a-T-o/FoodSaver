@@ -1,6 +1,5 @@
 package com.foodsaver.server.dtos;
 
-import com.foodsaver.server.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
