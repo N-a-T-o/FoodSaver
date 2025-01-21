@@ -157,11 +157,41 @@ nav.stroke ul li a:hover:after {
     align-items: center;
     justify-content: center;
 }
-<!--.card{
-    margin: 20px;
+.card{
+    margin: 10px;
     width: 20vw;
     height: 70vh;
-}-->
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+.card-body {
+    text-align: center;
+}
+.card-link {
+    background-color: #DC1E5C;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+
     </style>
 </head>
 <body>
@@ -173,7 +203,23 @@ nav.stroke ul li a:hover:after {
             <li><a href="#">Downloads</a></li>
             <li><a href="#">More</a></li>
             <li><a href="#">Nice staff</a></li>
+            <li>
+
+                <div class="dropdown ml-2" id="locales">
+                    <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.25rem 0.5rem; background-color: #f2f2f2; border: none !important;">
+                        <span class="flag-icon flag-icon-bg" th:if="#{lang} == '??lang_bg??'"></span>
+                        <span class="flag-icon flag-icon-gb" th:if="#{lang} == '??lang_en??'"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="?lang=bg"><span class="flag-icon flag-icon-bg"></span> <span th:text="#{lang.bg}"></span></a>
+                        <a class="dropdown-item" href="?lang=en"><span class="flag-icon flag-icon-gb"></span> <span th:text="#{lang.eng}"></span></a>
+                    </div>
+                </div>
+
+            </li>
         </ul>
+
+
     </nav>
 </section>
 
@@ -193,54 +239,44 @@ nav.stroke ul li a:hover:after {
 
 <section class="more row">
 
-    <div class="card" style="width: 280px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: white;">
-        <img src="..." class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
-        <div class="card-body" style="text-align: center;">
-            <h5 class="card-title" style="color: #FBC527;">Управление на хранителните запаси</h5>
-            <p class="card-text" style="color: #444;">Въвеждайте продуктите лесно чрез сканиране или ръчно добавяне.</p>
-            <a href="#" class="btn" style="background-color: #DC1E5C; color: white; padding: 10px 20px; border-radius: 5px;">Go somewhere</a>
+    <div class="card">
+        <img src="/images/home-page-1.jpg" class="card-img-top" alt="..." >
+        <div class="card-body">
+            <h5 class="card-title">Управление на хранителните запаси</h5>
+            <p class="card-text">Въвеждайте продуктите лесно чрез сканиране или ръчно добавяне.</p>
+            <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
 
-    <div class="card" style="width: 280px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: white;">
-        <img src="..." class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
-        <div class="card-body" style="text-align: center;">
-            <h5 class="card-title" style="color: #FBC527;">Генериране на персонализирани рецепти</h5>
-            <p class="card-text" style="color: #444;">Получавайте уникални предложения с наличните ви продукти.</p>
-            <a href="#" class="btn" style="background-color: #DC1E5C; color: white; padding: 10px 20px; border-radius: 5px;">Go somewhere</a>
+    <div class="card">
+        <img src="/images/home-page-2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Генериране на персонализирани рецепти</h5>
+            <p class="card-text">Получавайте уникални предложения с наличните ви продукти.</p>
+            <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
 
-    <div class="card" style="width: 280px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: white;">
-        <img src="..." class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
-        <div class="card-body" style="text-align: center;">
-            <h5 class="card-title" style="color: #FBC527;">Интелигентен списък за пазаруване</h5>
-            <p class="card-text" style="color: #444;">Създавайте списъци и получавайте предложения за супермаркети.</p>
-            <a href="#" class="btn" style="background-color: #DC1E5C; color: white; padding: 10px 20px; border-radius: 5px;">Go somewhere</a>
+    <div class="card">
+        <img src="/images/home-page-3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Интелигентен списък за пазаруване</h5>
+            <p class="card-text">Създавайте списъци и получавайте предложения за супермаркети.</p>
+            <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
 
-    <div class="card" style="width: 280px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: white;">
-        <img src="..." class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
-        <div class="card-body" style="text-align: center;">
-            <h5 class="card-title" style="color: #FBC527;">Отчети за потреблението</h5>
-            <p class="card-text" style="color: #444;">Анализирайте разходите си и оптимизирайте потреблението.</p>
-            <a href="#" class="btn" style="background-color: #DC1E5C; color: white; padding: 10px 20px; border-radius: 5px;">Go somewhere</a>
+    <div class="card">
+        <img src="/images/home-page-4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Отчети за потреблението</h5>
+            <p class="card-text">Анализирайте разходите си и оптимизирайте потреблението.</p>
+            <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
 
 </section>
 
 
-<div class="dropdown ml-2" id="locales">
-        <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.25rem 0.5rem; background-color: #f2f2f2; border: none !important;">
-            <span class="flag-icon flag-icon-bg" th:if="#{lang} == '??lang_bg??'"></span>
-            <span class="flag-icon flag-icon-gb" th:if="#{lang} == '??lang_en??'"></span>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="languageDropdown">
-            <a class="dropdown-item" href="?lang=bg"><span class="flag-icon flag-icon-bg"></span> <span th:text="#{lang.bg}"></span></a>
-            <a class="dropdown-item" href="?lang=en"><span class="flag-icon flag-icon-gb"></span> <span th:text="#{lang.eng}"></span></a>
-        </div>
-    </div>
 </body>
 </html>

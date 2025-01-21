@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="add banner">
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/banner.png" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="work on home page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/static/images/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/banner4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
