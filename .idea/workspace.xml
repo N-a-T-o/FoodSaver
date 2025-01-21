@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="work on home page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1736372368973</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="work on home page">
+      <created>1737443644849</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737443644849</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +266,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="add Dockerfile" />
     <MESSAGE value="add banner" />
-    <option name="LAST_COMMIT_MESSAGE" value="add banner" />
+    <MESSAGE value="work on home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on home page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FoodSaver$ClientApplication.ic" NAME="ClientApplication Coverage Results" MODIFIED="1736234954207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
