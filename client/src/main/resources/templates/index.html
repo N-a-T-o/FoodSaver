@@ -21,7 +21,7 @@
         .banner {
             position: relative;
             width: 100%;
-            height: 90vh;
+            height: 100vh;
             overflow: hidden;
         }
 
@@ -45,13 +45,14 @@
         .banner .text {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 25%;
             transform: translate(-50%, -50%);
             color: white;
             text-align: justify;
             z-index: 2;
             font-size: 16px;
             padding: 20px;
+            width: 50vw;
         }
 
         .banner h1 {
@@ -180,6 +181,8 @@ nav.stroke ul li a:hover:after {
     padding: 10px 20px;
     border-radius: 5px;
 }
+
+
 nav {
   position: fixed;
   top: 0;
@@ -210,6 +213,77 @@ nav {
         }
 
 
+
+
+    .footer-wrapper {
+        position: relative;
+        background: #2c3e50;
+        color: white;
+        padding: 80px 20px;
+        margin-top: 80px;
+        overflow: hidden;
+    }
+
+    .wave {
+        width: 1000px;
+        height: 1025px;
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        margin-left: -500px;
+        margin-top: -500px;
+        border-radius: 35%;
+        background: rgba(255, 255, 255, 0.2);
+        animation: wave 15s infinite linear;
+        z-index: 0;
+    }
+
+    @keyframes wave {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .footer-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .footer-content h4 {
+        margin-bottom: 15px;
+    }
+
+    .footer-content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-content ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    hr {
+        border-color: #444;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .footer-bottom a {
+        color: white;
+        margin: 0 10px;
+    }
     </style>
 </head>
 <body>
@@ -244,14 +318,19 @@ nav {
 <section class="banner">
     <img src="/images/banner.png" alt="banner image" class="image">
 
-    <div class="text col-5">
-        <h1 class="text-center">СъХРАНИтел</h1>
-        <p>
-            Оптимизирайте вашите хранителни запаси с лекота, планирайте идеалните рецепти, съобразени с
-            вашите предпочитания и нужди, и направете ежедневието си по-организирано, здравословно и
-            приятно! Нашата платформа ви помага да спестите време, ресурси и усилия, като ви предоставя
-            иновативни решения за управление на продуктите у дома и вдъхновение за вкусни ястия.
-        </p>
+    <div class="text col-5 text-center">
+        <h1 style="font-weight: 400; font-size: 54px;">СъХРАНИтел</h1>
+        <h5>
+            С грижа към света, с грижа към храната.
+        </h5>
+        <div class="buttons" style="margin-top: 40px;">
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;">Регистрирай се</button>
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;">Свържи се с нас</button>
+        </div>
+
+
+
+
     </div>
 </section>
 
@@ -294,6 +373,44 @@ nav {
     </div>
 
 </section>
+
+
+
+
+<footer class="footer-wrapper">
+    <div class="wave"></div>
+    <div class="footer-content">
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4>Съхранител</h4>
+            <p>С грижа към света, с грижа към храната. Присъединете се към нас и помогнете за спасяването на храна и ресурси.</p>
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4>Полезни връзки</h4>
+            <ul>
+                <li><a href="#">Вашият акаунт</a></li>
+                <li><a href="#">Регистрация</a></li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4>Контакти</h4>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> София, България</li>
+                <li><i class="fas fa-envelope"></i> info@sahranitel.bg</li>
+                <li><i class="fas fa-phone"></i> +359 888 123 456</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Съхранител. Всички права запазени.</p>
+        <div>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
 
 
 </body>
