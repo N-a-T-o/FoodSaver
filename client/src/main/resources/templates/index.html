@@ -219,9 +219,11 @@ nav {
         position: relative;
         background: #2c3e50;
         color: white;
-        padding: 80px 20px;
-        margin-top: 80px;
+        padding: 150px 20px;
+        margin-top: 150px;
         overflow: hidden;
+        height: 90vh;
+        width: 100vw;
     }
 
     .wave {
@@ -233,7 +235,7 @@ nav {
         margin-left: -500px;
         margin-top: -500px;
         border-radius: 35%;
-        background: rgba(255, 255, 255, 0.2);
+        background: #314357;
         animation: wave 15s infinite linear;
         z-index: 0;
     }
@@ -255,6 +257,11 @@ nav {
         flex-wrap: wrap;
         max-width: 1200px;
         margin: auto;
+    }
+    .footer-bottom {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
     }
 
     .footer-content h4 {
@@ -283,6 +290,9 @@ nav {
     .footer-bottom a {
         color: white;
         margin: 0 10px;
+    }
+    .github-icon {
+        text-decoration: none;
     }
     </style>
 </head>
@@ -319,28 +329,42 @@ nav {
     <img src="/images/banner.png" alt="banner image" class="image">
 
     <div class="text col-5 text-center">
-        <h1 style="font-weight: 400; font-size: 54px;">СъХРАНИтел</h1>
-        <h5>
-            С грижа към света, с грижа към храната.
-        </h5>
+        <h1 style="font-weight: 400; font-size: 54px;" th:text="#{project.name}"></h1>
+        <h5 th:text="#{home.banner.subtitle}"></h5>
         <div class="buttons" style="margin-top: 40px;">
-            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;">Регистрирай се</button>
-            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;">Свържи се с нас</button>
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;" th:text="#{home.btn.register}"></button>
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;" th:text="#{home.btn.contact}"></button>
         </div>
-
-
-
 
     </div>
 </section>
+
+<!--<section class="more row" style="margin: 80px 80px 0">
+    <div>
+
+        Добре дошли в „СъХРАНИтел“ – платформата, която ви помага да се справите с един от
+        най-големите проблеми на нашето време: разхищението на храна. Огромни количества хранителни
+        продукти се изхвърлят всяка година, често заради лошо планиране или забравени продукти в
+        хладилника. Това не само увеличава разходите за домакинствата, но и оказва сериозно влияние
+        върху околната среда.
+
+        „СъХРАНИтел“ е вашият личен помощник, който ви помага да следите наличностите у дома, да
+        получавате идеи за рецепти с наличните продукти и да бъдете уведомявани навреме за
+        сроковете на годност. Нашата мисия е да улесним ежедневието ви, да ви спестим средства и да
+        допринесем за намаляването на излишните отпадъци. Присъединете се към „СъХРАНИтел“ и станете
+        част от решението – за по-устойчиво и отговорно бъдеще!
+
+    </div>
+</section>-->
+
 
 <section class="more row">
 
     <div class="card">
         <img src="/images/home-page-1.jpg" class="card-img-top" alt="..." >
         <div class="card-body">
-            <h5 class="card-title">Управление на хранителните запаси</h5>
-            <p class="card-text">Въвеждайте продуктите лесно чрез сканиране или ръчно добавяне.</p>
+            <h5 class="card-title" th:text="#{home.feature.1.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.1.desc}"></p>
             <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
@@ -348,8 +372,8 @@ nav {
     <div class="card">
         <img src="/images/home-page-2.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Генериране на персонализирани рецепти</h5>
-            <p class="card-text">Получавайте уникални предложения с наличните ви продукти.</p>
+            <h5 class="card-title"  th:text="#{home.feature.2.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.2.desc}"></p>
             <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
@@ -357,8 +381,8 @@ nav {
     <div class="card">
         <img src="/images/home-page-3.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Интелигентен списък за пазаруване</h5>
-            <p class="card-text">Създавайте списъци и получавайте предложения за супермаркети.</p>
+            <h5 class="card-title" th:text="#{home.feature.3.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.3.desc}"></p>
             <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
@@ -366,8 +390,8 @@ nav {
     <div class="card">
         <img src="/images/home-page-4.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Отчети за потреблението</h5>
-            <p class="card-text">Анализирайте разходите си и оптимизирайте потреблението.</p>
+            <h5 class="card-title" th:text="#{home.feature.4.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.4.desc}"></p>
             <a href="#" class="btn card-link">Go somewhere</a>
         </div>
     </div>
@@ -380,34 +404,34 @@ nav {
 <footer class="footer-wrapper">
     <div class="wave"></div>
     <div class="footer-content">
-        <div style="flex: 1; min-width: 200px; margin: 10px;">
-            <h4>Съхранител</h4>
-            <p>С грижа към света, с грижа към храната. Присъединете се към нас и помогнете за спасяването на храна и ресурси.</p>
+        <div style="flex: 1; min-width: 200px; margin: 10px; display: flex; align-items: center; justify-content: center;">
+            <img src="/images/logo_no_bg.png" alt="Съхранител Лого" style="width: 200px; height: auto; ">
         </div>
         <div style="flex: 1; min-width: 200px; margin: 10px;">
-            <h4>Полезни връзки</h4>
+            <h4 th:text="#{project.name}"></h4>
+            <p th:text="#{footer.text}"></p>
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4 th:text="#{footer.useful_links}"></h4>
             <ul>
-                <li><a href="#">Вашият акаунт</a></li>
-                <li><a href="#">Регистрация</a></li>
-                <li><a href="#">Контакти</a></li>
+                <li><a href="#" th:text="#{footer.account}"></a></li>
+                <li><a href="#" th:text="#{footer.register}"></a></li>
+                <li><a href="#" th:text="#{footer.contacts}"></a></li>
             </ul>
         </div>
         <div style="flex: 1; min-width: 200px; margin: 10px;">
-            <h4>Контакти</h4>
+            <h4 th:text="#{footer.contact_us}"></h4>
             <ul>
-                <li><i class="fas fa-map-marker-alt"></i> София, България</li>
-                <li><i class="fas fa-envelope"></i> info@sahranitel.bg</li>
-                <li><i class="fas fa-phone"></i> +359 888 123 456</li>
+                <li><i class="fas fa-envelope"></i> nadezhda.todor.24@gmail.com</li>
+                <li><i class="fas fa-phone"></i> 087  913  0205</li>
             </ul>
         </div>
     </div>
     <hr>
     <div class="footer-bottom">
-        <p>&copy; 2025 Съхранител. Всички права запазени.</p>
+        <p th:text="#{footer.rights}"></p>
         <div>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="github-icon"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
     </div>
 </footer>

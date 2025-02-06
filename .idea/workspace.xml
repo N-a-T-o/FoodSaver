@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="make cards responsive">
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="add footer">
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/logo_no_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/logo_no_bg_no_fill.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/messages_bg.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/messages_bg.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/messages_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
