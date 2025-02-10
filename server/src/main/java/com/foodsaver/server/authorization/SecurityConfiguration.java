@@ -8,7 +8,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
@@ -33,6 +32,8 @@ public class SecurityConfiguration {
                         new RequestHeaderRequestMatcher(HttpHeaders.COOKIE)
                 )))
                 .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/api/v1/products/**")
+                        .authenticated()
                         .anyRequest()
                         .permitAll()
                 )

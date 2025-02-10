@@ -1,24 +1,27 @@
 package com.foodsaver.server.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import lombok.RequiredArgsConstructor;
+import com.foodsaver.server.dtos.response.ProductFromReceiptResponse;
+import com.foodsaver.server.exceptions.AI.ErrorProcessingAIResponseException;
+import com.foodsaver.server.exceptions.AI.UnableToExtractContentFromAIResponseException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.util.List;
+
 @Service
 public class OpenAIAssistanceService {
     private final RestTemplate restTemplate;
-    private final String openAIEndpoint = "https://api.openai.com/v1/chat/completions";
+    private final static String openAIEndpoint = "https://api.openai.com/v1/chat/completions";
     private final String apiKey;
     private final ObjectMapper objectMapper;
 
@@ -28,20 +31,23 @@ public class OpenAIAssistanceService {
         this.objectMapper = objectMapper;
     }
 
-    public String analyzeReceipt(String base64Image) throws JsonProcessingException {
+    public List<ProductFromReceiptResponse> analyzeReceipt(String base64Image) throws JsonProcessingException {
         String requestBody = buildReceiptRequestBody(base64Image);
         HttpEntity<String> requestEntity = createRequestEntity(requestBody);
 
         try {
+            // Send the POST request to the OpenAI API.
             ResponseEntity<String> responseEntity = restTemplate.postForEntity(openAIEndpoint, requestEntity, String.class);
             String responseBody = responseEntity.getBody();
+
             if (responseBody != null) {
-                return extractContent(responseBody);
+                String extractedContent = extractContent(responseBody);
+                return parseProductList(extractedContent);
             } else {
-                throw new RuntimeException("Empty response from API");
+                throw new UnableToExtractContentFromAIResponseException("Empty response from API");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            throw new ErrorProcessingAIResponseException(e.getMessage());
         }
     }
 
@@ -61,7 +67,7 @@ public class OpenAIAssistanceService {
     private String getReceiptTextInstructions() {
         return "You are given a photo of a Bulgarian store receipt. " +
                 "Please analyze the image and extract ONLY the edible (food) items. For each item, identify:\n\n" +
-                "1. The product name (in Bulgarian or transliterated),\n" +
+                "1. The product name (in Bulgarian or transliterated)(!!keep the product name as you see it, do not correct it!!),\n" +
                 "2. The amount or quantity (0.5, 1, 2, 5...) and another field for unit it is measured (if available, e.g. \" kg\", \" бр.\", etc.)If you see many products with the same name write them as one product with same measuring unit while increasing the amount,\n" +
                 "3. The price for single product and another field for the currency(write it as BGN, EUR, USD and so) (in the currency and format shown on the receipt).\n\n" +
                 "Return these items in valid JSON format, using the structure - list of products, every product has field name, amount, unit, price, currency. You should fill the array correctly\n\n" +
@@ -116,10 +122,52 @@ public class OpenAIAssistanceService {
             if (!messageContent.isMissingNode()) {
                 return messageContent.asText();
             } else {
-                throw new RuntimeException("Unable to extract content from AI response");
+                throw new UnableToExtractContentFromAIResponseException("Unable to extract content from AI response");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            throw new ErrorProcessingAIResponseException(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Removes markdown formatting from the given JSON text.
+     * For example, it removes any leading "```json" and trailing "```" if present.
+     */
+    private String stripMarkdownFormatting(String jsonText) {
+        if (jsonText.startsWith("```json")) {
+            jsonText = jsonText.substring("```json".length());
+        }
+        if (jsonText.endsWith("```")) {
+            jsonText = jsonText.substring(0, jsonText.length() - 3);
+        }
+        return jsonText.trim();
+    }
+
+    /**
+     * Parses the JSON (which might be an array or an object containing a "products" array)
+     * into a List<ProductFromReceiptResponse>.
+     */
+    private List<ProductFromReceiptResponse> parseProductList(String json) {
+        try {
+            String cleanJson = stripMarkdownFormatting(json);
+
+            // Check if the clean JSON starts with '[' (i.e. it is a JSON array)
+            if (cleanJson.startsWith("[")) {
+                return objectMapper.readValue(cleanJson,
+                        new TypeReference<List<ProductFromReceiptResponse>>() {});
+            } else {
+                // Assume it's an object with a "products" field
+                JsonNode rootNode = objectMapper.readTree(cleanJson);
+                JsonNode productsNode = rootNode.path("products");
+                if (!productsNode.isArray()) {
+                    throw new ErrorProcessingAIResponseException("Invalid product JSON structure: 'products' is not an array.");
+                }
+                return objectMapper.readValue(productsNode.traverse(),
+                        new TypeReference<List<ProductFromReceiptResponse>>() {});
+            }
+        } catch (IOException e) {
+            throw new ErrorProcessingAIResponseException("Error parsing product list: " + e.getMessage());
         }
     }
 }
