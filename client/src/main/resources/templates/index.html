@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{home.title}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner .text {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: justify;
+            z-index: 2;
+            font-size: 16px;
+            padding: 20px;
+            width: 50vw;
+        }
+
+        .banner h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .banner .text {
+                font-size: 14px;
+                width: 90%;
+            }
+
+            .banner h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner .text {
+                font-size: 12px;
+                text-align: center;
+            }
+
+            .banner h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+
+
+
+small {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.center {
+  text-align: center;
+}
+
+/* NAVIGATION */
+nav {
+  width: 100%;
+  margin: 0 0;
+  background: #037247;
+  padding: 5px 0;
+  box-shadow: 0px 5px 0px #dedede;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #cfcfcf;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 5px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+nav ul li a:hover {
+  color: #fff;
+}
+
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #fff;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+
+
+.more {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    margin: 10px;
+    width: 20vw;
+    height: 70vh;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+.card-body {
+    text-align: center;
+}
+.card-link {
+    background-color: #DC1E5C;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+@media (max-width: 992px) {
+            .card {
+                width: calc(100% / 3 - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(100% / 2 - 20px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+
+
+
+    .footer-wrapper {
+        position: relative;
+        background: #2c3e50;
+        color: white;
+        padding: 150px 20px;
+        margin-top: 150px;
+        overflow: hidden;
+        height: 90vh;
+        width: 100vw;
+    }
+
+    .wave {
+        width: 1000px;
+        height: 1025px;
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        margin-left: -500px;
+        margin-top: -500px;
+        border-radius: 35%;
+        background: #314357;
+        animation: wave 15s infinite linear;
+        z-index: 0;
+    }
+
+    @keyframes wave {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .footer-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .footer-bottom {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+    }
+
+    .footer-content h4 {
+        margin-bottom: 15px;
+    }
+
+    .footer-content ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-content ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    hr {
+        border-color: #444;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .footer-bottom a {
+        color: white;
+        margin: 0 10px;
+    }
+    .github-icon {
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+<section>
+    <nav class="stroke">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">More</a></li>
+            <li><a href="#">Nice staff</a></li>
+            <li>
+
+                <div class="dropdown ml-2" id="locales">
+                    <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.25rem 0.5rem; background-color: #f2f2f2; border: none !important;">
+                        <span class="flag-icon flag-icon-bg" th:if="#{lang} == '??lang_bg??'"></span>
+                        <span class="flag-icon flag-icon-gb" th:if="#{lang} == '??lang_en??'"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="?lang=bg"><span class="flag-icon flag-icon-bg"></span> <span th:text="#{lang.bg}"></span></a>
+                        <a class="dropdown-item" href="?lang=en"><span class="flag-icon flag-icon-gb"></span> <span th:text="#{lang.eng}"></span></a>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+
+    </nav>
+</section>
+
+<section class="banner">
+    <img src="/images/banner.png" alt="banner image" class="image">
+
+    <div class="text col-5 text-center">
+        <h1 style="font-weight: 400; font-size: 54px;" th:text="#{project.name}"></h1>
+        <h5 th:text="#{home.banner.subtitle}"></h5>
+        <div class="buttons" style="margin-top: 40px;">
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;" th:text="#{home.btn.register}"></button>
+            <button type="button" class="btn btn-success" style="margin: 10px; box-shadow: 0 0 2px white;" th:text="#{home.btn.contact}"></button>
+        </div>
+
+    </div>
+</section>
+
+<!--<section class="more row" style="margin: 80px 80px 0">
+    <div>
+
+        Добре дошли в „СъХРАНИтел“ – платформата, която ви помага да се справите с един от
+        най-големите проблеми на нашето време: разхищението на храна. Огромни количества хранителни
+        продукти се изхвърлят всяка година, често заради лошо планиране или забравени продукти в
+        хладилника. Това не само увеличава разходите за домакинствата, но и оказва сериозно влияние
+        върху околната среда.
+
+        „СъХРАНИтел“ е вашият личен помощник, който ви помага да следите наличностите у дома, да
+        получавате идеи за рецепти с наличните продукти и да бъдете уведомявани навреме за
+        сроковете на годност. Нашата мисия е да улесним ежедневието ви, да ви спестим средства и да
+        допринесем за намаляването на излишните отпадъци. Присъединете се към „СъХРАНИтел“ и станете
+        част от решението – за по-устойчиво и отговорно бъдеще!
+
+    </div>
+</section>-->
+
+
+<section class="more row">
+
+    <div class="card">
+        <img src="/images/home-page-1.jpg" class="card-img-top" alt="..." >
+        <div class="card-body">
+            <h5 class="card-title" th:text="#{home.feature.1.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.1.desc}"></p>
+            <a href="#" class="btn card-link">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/images/home-page-2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"  th:text="#{home.feature.2.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.2.desc}"></p>
+            <a href="#" class="btn card-link">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/images/home-page-3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" th:text="#{home.feature.3.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.3.desc}"></p>
+            <a href="#" class="btn card-link">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="/images/home-page-4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" th:text="#{home.feature.4.title}"></h5>
+            <p class="card-text" th:text="#{home.feature.4.desc}"></p>
+            <a href="#" class="btn card-link">Go somewhere</a>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<footer class="footer-wrapper">
+    <div class="wave"></div>
+    <div class="footer-content">
+        <div style="flex: 1; min-width: 200px; margin: 10px; display: flex; align-items: center; justify-content: center;">
+            <img src="/images/logo_no_bg.png" alt="Съхранител Лого" style="width: 200px; height: auto; ">
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4 th:text="#{project.name}"></h4>
+            <p th:text="#{footer.text}"></p>
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4 th:text="#{footer.useful_links}"></h4>
+            <ul>
+                <li><a href="#" th:text="#{footer.account}"></a></li>
+                <li><a href="#" th:text="#{footer.register}"></a></li>
+                <li><a href="#" th:text="#{footer.contacts}"></a></li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 200px; margin: 10px;">
+            <h4 th:text="#{footer.contact_us}"></h4>
+            <ul>
+                <li><i class="fas fa-envelope"></i> nadezhda.todor.24@gmail.com</li>
+                <li><i class="fas fa-phone"></i> 087  913  0205</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p th:text="#{footer.rights}"></p>
+        <div>
+            <a href="#" class="github-icon"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
