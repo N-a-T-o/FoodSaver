@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add working method to extract receipts">
+      <change afterPath="$PROJECT_DIR$/client/client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/model/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature-github-workflows" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/src/test/java/com/foodsaver/client/ClientApplicationTests.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/ServerApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2pyJbbbHj884VJ5RuXZL6SKDW9x" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ServerApplication.executor": "Run",
+    "JUnit.ApiExceptionParserTest.executor": "Run",
+    "JUnit.AppConfigTest.executor": "Run",
+    "JUnit.ApplicationConfigTest.executor": "Run",
+    "JUnit.AuthenticationControllerTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor": "Run",
+    "JUnit.AuthenticationServiceTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.register_ShouldRegisterUserSuccessfully.executor": "Run",
+    "JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties.executor": "Run",
+    "JUnit.EmailSenderServiceTest.executor": "Run",
+    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs.executor": "Run",
+    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully.executor": "Run",
+    "JUnit.JWTAuthenticationFilterTest.executor": "Run",
+    "JUnit.JWTServiceTest.executor": "Run",
+    "JUnit.SecurityConfigurationTest.executor": "Run",
+    "JUnit.SwaggerConfigTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowExceptionWhenUserNotFound.executor": "Run",
+    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowUserNotFoundExceptionWhenUserNotFound.executor": "Run",
+    "JUnit.VerificationTokenServiceTest.executor": "Run",
+    "JUnit.com.foodsaver.server.services in server.executor": "Coverage",
+    "JUnit.java in server.executor": "Run",
+    "Maven.server [clean,install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/lenovo/Desktop/FoodSaver/client",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Desktop\FoodSaver\server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ServerApplication">
+    <configuration name="ServerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="DATASOURCE_URL" value="jdbc:mysql://${MYSQL_HOST:localhost}:3306/foodsaver?autoreconnect=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf8" />
+        <env name="DB_PASSWORD" value="" />
+        <env name="email" value="ntodor358@gmail.com" />
+        <env name="OPENAI_API_KEY" value="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" />
+        <env name="password" value="lexrrzajpyytpqps" />
+        <env name="secret.key" value="yvKlZIBeMDUA3s6saNgBpWHX65tJ+0WVs6Nqv9qhycYMVb4vZ0LqDtp6uMiI5gFv" />
+        <env name="SERVER_PORT" value="8082" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.ServerApplication" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="configureMailSender_ShouldSetMailSenderProperties" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.services.EmailSenderServiceTest" />
+      <option name="METHOD_NAME" value="sendVerificationToken_ShouldSendEmailSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.foodsaver.server.services in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="server" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="JUnit.com.foodsaver.server.services in server" />
+      <item itemvalue="JUnit.EmailSenderServiceTest" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+      <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.foodsaver.server.services in server" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
+        <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
+        <item itemvalue="JUnit.EmailSenderServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="" />
+      <created>1733732456613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733732456613</updated>
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1733736624215</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733736624215</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1733737198819</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733737198819</updated>
+    </task>
+    <task id="LOCAL-00003" summary="initial commit">
+      <created>1733767331803</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733767331803</updated>
+    </task>
+    <task id="LOCAL-00004" summary="initial commit">
+      <created>1733767577381</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733767577381</updated>
+    </task>
+    <task id="LOCAL-00005" summary="initial commit">
+      <created>1733767957763</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733767957763</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add User entity, migration, Role enum">
+      <option name="closed" value="true" />
+      <created>1734032933660</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734032933660</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add VerificationToken entity, migration">
+      <option name="closed" value="true" />
+      <created>1734033985951</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1734033985951</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add custom exceptions, exception handler, add jwt dependencies">
+      <option name="closed" value="true" />
+      <created>1734372847223</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734372847223</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add ApplicationConfig">
+      <option name="closed" value="true" />
+      <created>1734375465775</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734375465775</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add jwt configuration files. Add AppConfig">
+      <option name="closed" value="true" />
+      <created>1734376597843</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734376597843</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add UserDTO, AuthenticationService, AuthenticationController">
+      <option name="closed" value="true" />
+      <created>1734417700168</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734417700168</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs">
+      <option name="closed" value="true" />
+      <created>1734421594426</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734421594426</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add authenticate request. Add custom exceptions stuff">
+      <option name="closed" value="true" />
+      <created>1734892802542</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734892802542</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add tests">
+      <option name="closed" value="true" />
+      <created>1735497155843</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735497155843</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add EmailSenderService. Send email with verification token when register">
+      <option name="closed" value="true" />
+      <created>1735500569739</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1735500569739</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add AuthenticationServiceTest, VerificationTokenServiceTest">
+      <option name="closed" value="true" />
+      <created>1736232116975</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736232116975</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add Category, NutritionalValues, Product, UserProduct entities. Add migration files">
+      <option name="closed" value="true" />
+      <created>1737440905766</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737440905766</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add CategoryDTO, NutritionalValuesDTO, ProductDTO, UserProductDTO">
+      <option name="closed" value="true" />
+      <created>1737441868080</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737441868080</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add CategoryRepository, NutritionalValuesRepository, ProductRepository, UserProductRepository">
+      <option name="closed" value="true" />
+      <created>1737443527873</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737443527873</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Remove unused imports">
+      <option name="closed" value="true" />
+      <created>1737443604079</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737443604079</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add basic openAIApi request for test purposes.">
+      <option name="closed" value="true" />
+      <created>1739168788203</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739168788203</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add working method to extract receipts">
+      <option name="closed" value="true" />
+      <created>1739188199741</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739188199741</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Add User entity, migration, Role enum" />
+    <MESSAGE value="Add VerificationToken entity, migration" />
+    <MESSAGE value="Add custom exceptions, exception handler, add jwt dependencies" />
+    <MESSAGE value="Add ApplicationConfig" />
+    <MESSAGE value="Add jwt configuration files. Add AppConfig" />
+    <MESSAGE value="Add UserDTO, AuthenticationService, AuthenticationController" />
+    <MESSAGE value="Add authenticate post request. Add RegisterRequest, AuthenticationRequest, AuthenticationResponse DTOs" />
+    <MESSAGE value="Add authenticate request. Add custom exceptions stuff" />
+    <MESSAGE value="Add tests" />
+    <MESSAGE value="Add EmailSenderService. Send email with verification token when register" />
+    <MESSAGE value="Add AuthenticationServiceTest, VerificationTokenServiceTest" />
+    <MESSAGE value="Add get user info request, add tests" />
+    <MESSAGE value="Add Category, NutritionalValues, Product, UserProduct entities. Add migration files" />
+    <MESSAGE value="Add CategoryDTO, NutritionalValuesDTO, ProductDTO, UserProductDTO" />
+    <MESSAGE value="Add CategoryRepository, NutritionalValuesRepository, ProductRepository, UserProductRepository" />
+    <MESSAGE value="Remove unused imports" />
+    <MESSAGE value="Add basic openAIApi request for test purposes." />
+    <MESSAGE value="Add basic openAIApi request for test purposes.Add basic openAIApi request for test purposes." />
+    <MESSAGE value="Add working method to extract receipts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add working method to extract receipts" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="headers.entrySet().toArray()[1]" />
+        <watch expression="headers.entrySet().toArray()[1]" />
+        <watch expression="((ResourceAccessException)e).detailMessage" custom="org.springframework.web.client.ResourceAccessException" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FoodSaver$ClientApplication.ic" NAME="ClientApplication Coverage Results" MODIFIED="1736234954207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.foodsaver.client.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/FoodSaver$ServerApplication.ic" NAME="ServerApplication Coverage Results" MODIFIED="1734340457584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.foodsaver.server.*</FILTER>
+    </SUITE>
+  </component>
+</project>
