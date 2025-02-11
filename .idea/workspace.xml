@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Add get user info request, add tests">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/dtos/request/VerificationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/UnauthorizedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/services/EmailSenderServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/services/UserServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/utils/ApiExceptionParserTest.java" afterDir="false" />
+    <list default="true" id="97364c83-fc4f-454f-9eea-e108ca4e0d66" name="Changes" comment="Save products when scannerd.">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/foodsaver/client/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/foodsaver/client/exceptions/AccessDeniedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/foodsaver/client/exceptions/ApiRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/foodsaver/client/exceptions/decoder/CustomErrorDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/auth/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/InvalidTokenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/InvalidTokenException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/foodsaver/server/exceptions/User/UserNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/foodsaver/server/auth/AuthenticationServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -59,42 +53,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ServerApplication.executor": "Run",
-    "JUnit.ApiExceptionParserTest.executor": "Run",
-    "JUnit.AppConfigTest.executor": "Run",
-    "JUnit.ApplicationConfigTest.executor": "Run",
-    "JUnit.AuthenticationControllerTest.executor": "Run",
-    "JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor": "Run",
-    "JUnit.AuthenticationServiceTest.executor": "Run",
-    "JUnit.AuthenticationServiceTest.register_ShouldRegisterUserSuccessfully.executor": "Run",
-    "JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties.executor": "Run",
-    "JUnit.EmailSenderServiceTest.executor": "Run",
-    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs.executor": "Run",
-    "JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully.executor": "Run",
-    "JUnit.JWTAuthenticationFilterTest.executor": "Run",
-    "JUnit.JWTServiceTest.executor": "Run",
-    "JUnit.SecurityConfigurationTest.executor": "Run",
-    "JUnit.SwaggerConfigTest.executor": "Run",
-    "JUnit.UserServiceTest.executor": "Run",
-    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowExceptionWhenUserNotFound.executor": "Run",
-    "JUnit.UserServiceTest.findUserByUsername_ShouldThrowUserNotFoundExceptionWhenUserNotFound.executor": "Run",
-    "JUnit.VerificationTokenServiceTest.executor": "Run",
-    "JUnit.java in server.executor": "Run",
-    "Maven.server [clean,install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ApiExceptionParserTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ApplicationConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.authenticate_ShouldThrowUsernamePasswordExceptionWhenInvalidCredentials.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.register_ShouldRegisterUserSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailSenderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JWTAuthenticationFilterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JWTServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SecurityConfigurationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SwaggerConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.findUserByUsername_ShouldThrowExceptionWhenUserNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.findUserByUsername_ShouldThrowUserNotFoundExceptionWhenUserNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VerificationTokenServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.com.foodsaver.server.services in server.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in server.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.server [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.server [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.server [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully">
+}</component>
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -102,27 +100,13 @@
         <env name="DATASOURCE_URL" value="jdbc:mysql://${MYSQL_HOST:localhost}:3306/foodsaver?autoreconnect=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf8" />
         <env name="DB_PASSWORD" value="" />
         <env name="email" value="ntodor358@gmail.com" />
+        <env name="OPENAI_API_KEY" value="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" />
         <env name="password" value="lexrrzajpyytpqps" />
         <env name="secret.key" value="yvKlZIBeMDUA3s6saNgBpWHX65tJ+0WVs6Nqv9qhycYMVb4vZ0LqDtp6uMiI5gFv" />
         <env name="SERVER_PORT" value="8082" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.ServerApplication" />
       <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApiExceptionParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.foodsaver.server.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.foodsaver.server.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.foodsaver.server.utils.ApiExceptionParserTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,21 +174,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.foodsaver.server.services in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.foodsaver.server.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.foodsaver.server.services" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ServerApplication" />
-      <item itemvalue="JUnit.ApiExceptionParserTest" />
+      <item itemvalue="JUnit.com.foodsaver.server.services in server" />
+      <item itemvalue="JUnit.EmailSenderServiceTest" />
       <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
       <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
       <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
-      <item itemvalue="JUnit.EmailSenderServiceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.foodsaver.server.services in server" />
         <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldSendEmailSuccessfully" />
         <item itemvalue="JUnit.EmailSenderServiceTest.sendVerificationToken_ShouldLogErrorWhenMessagingExceptionOccurs" />
         <item itemvalue="JUnit.EmailSenderServiceTest.configureMailSender_ShouldSetMailSenderProperties" />
         <item itemvalue="JUnit.EmailSenderServiceTest" />
-        <item itemvalue="JUnit.ApiExceptionParserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -340,7 +338,63 @@
       <option name="project" value="LOCAL" />
       <updated>1736232116975</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add Category, NutritionalValues, Product, UserProduct entities. Add migration files">
+      <option name="closed" value="true" />
+      <created>1737440905766</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737440905766</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add CategoryDTO, NutritionalValuesDTO, ProductDTO, UserProductDTO">
+      <option name="closed" value="true" />
+      <created>1737441868080</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737441868080</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add CategoryRepository, NutritionalValuesRepository, ProductRepository, UserProductRepository">
+      <option name="closed" value="true" />
+      <created>1737443527873</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737443527873</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Remove unused imports">
+      <option name="closed" value="true" />
+      <created>1737443604079</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737443604079</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add basic openAIApi request for test purposes.">
+      <option name="closed" value="true" />
+      <created>1739168788203</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739168788203</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add working method to extract receipts">
+      <option name="closed" value="true" />
+      <created>1739188199741</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739188199741</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Save products when scannerd.">
+      <option name="closed" value="true" />
+      <created>1739269343196</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1739269343196</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,6 +435,23 @@
     <MESSAGE value="Add EmailSenderService. Send email with verification token when register" />
     <MESSAGE value="Add AuthenticationServiceTest, VerificationTokenServiceTest" />
     <MESSAGE value="Add get user info request, add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add get user info request, add tests" />
+    <MESSAGE value="Add Category, NutritionalValues, Product, UserProduct entities. Add migration files" />
+    <MESSAGE value="Add CategoryDTO, NutritionalValuesDTO, ProductDTO, UserProductDTO" />
+    <MESSAGE value="Add CategoryRepository, NutritionalValuesRepository, ProductRepository, UserProductRepository" />
+    <MESSAGE value="Remove unused imports" />
+    <MESSAGE value="Add basic openAIApi request for test purposes." />
+    <MESSAGE value="Add basic openAIApi request for test purposes.Add basic openAIApi request for test purposes." />
+    <MESSAGE value="Add working method to extract receipts" />
+    <MESSAGE value="Save products when scannerd." />
+    <option name="LAST_COMMIT_MESSAGE" value="Save products when scannerd." />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="headers.entrySet().toArray()[1]" />
+        <watch expression="headers.entrySet().toArray()[1]" />
+        <watch expression="((ResourceAccessException)e).detailMessage" custom="org.springframework.web.client.ResourceAccessException" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
